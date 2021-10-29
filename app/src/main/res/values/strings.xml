@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OnlineCinema</string>
+    <string name="tv_title_placeholder">Titles</string>
 </resources>

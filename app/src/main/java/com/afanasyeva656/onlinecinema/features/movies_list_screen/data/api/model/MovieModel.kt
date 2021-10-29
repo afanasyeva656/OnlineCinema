@@ -3,17 +3,30 @@ package com.afanasyeva656.onlinecinema.features.movies_list_screen.data.api.mode
 import com.google.gson.annotations.SerializedName
 
 data class MovieModel(
-    @SerializedName("adult") val adult: Boolean,
-    @SerializedName("genres") val genres: List<GenreModel>,
-    @SerializedName("id") val id: Int,
-    @SerializedName("original_language") val originalLanguage: String,
-    @SerializedName("original_title") val originalTitle: String,
-    @SerializedName("overview") val overview: String,
-    @SerializedName("release_date") val releaseDate: String,
-    @SerializedName("poster_path") val posterPath: String,
-    @SerializedName("popularity") val popularity: Double,
-    @SerializedName("title") val title: String,
-    @SerializedName("video") val video: String,
-    @SerializedName("vote_average") val voteAverage: Double,
-    @SerializedName("vote_count") val voteCount: Int
+    @SerializedName("adult")
+    val adult: Boolean,
+    @SerializedName("genres")
+    val genres: List<GenreModel>,
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("original_language")
+    val originalLanguage: String,
+    @SerializedName("original_title")
+    val originalTitle: String,
+    @SerializedName("overview")
+    val overview: String,
+    @SerializedName("release_date")
+    val releaseDate: String,
+    @SerializedName("poster_path")
+    val posterPath: String,
+    @SerializedName("popularity")
+    val popularity: Double,
+    @SerializedName("title")
+    val title: String,
+    @SerializedName("video")
+    val video: String,
+    @SerializedName("vote_average")
+    val voteAverage: Double,
+    @SerializedName("vote_count")
+    val voteCount: Int
 )

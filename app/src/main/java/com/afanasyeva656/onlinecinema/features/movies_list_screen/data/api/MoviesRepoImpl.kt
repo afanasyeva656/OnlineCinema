@@ -5,6 +5,6 @@ import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model.M
 
 class MoviesRepoImpl(private val source: MoviesRemoteSource): MoviesRepo {
     override suspend fun getMoviesList(): List<MovieDomainModel> {
-        return source.getMoviesList().map {it.toDomain()}
+        return source.getMoviesList().results.map { it.toDomain() }
     }
 }

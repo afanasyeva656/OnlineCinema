@@ -25,14 +25,12 @@ class MoviesListViewModel(
                 )
             }
             is DataEvent.SuccessMoviesList -> {
-                Log.d("Movies List", event.moviesList[0].title)
                 return previousState.copy(
                     moviesList = event.moviesList,
                     isLoading = event.isLoading
                 )
             }
             is DataEvent.ErrorMoviesList -> {
-                Log.d("Movies List", event.errorMessage)
                 return previousState.copy(
                     errorMessage = event.errorMessage,
                     isLoading = event.isLoading

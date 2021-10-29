@@ -21,7 +21,13 @@ class MoviesListViewModel(
             is DataEvent.OnLoadData -> {
                 moviesInteractor.getMoviesList().fold(
                     onSuccess = { processDataEvent(DataEvent.SuccessMoviesList(it, false)) },
-                    onError = { processDataEvent(DataEvent.ErrorMoviesList(it.localizedMessage ?: "error", false)) }
+                    onError = {
+                        processDataEvent(
+                            DataEvent.ErrorMoviesList(
+                                it.localizedMessage ?: "error", false
+                            )
+                        )
+                    }
                 )
             }
             is DataEvent.SuccessMoviesList -> {

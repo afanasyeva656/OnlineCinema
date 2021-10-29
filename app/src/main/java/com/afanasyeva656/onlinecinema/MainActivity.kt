@@ -8,7 +8,7 @@ import com.afanasyeva656.onlinecinema.features.movies_list_screen.ui.MoviesListF
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragment(MoviesListFragment())
+        setFragment(MoviesListFragment.newInstance())
     }
 
     private fun setFragment(fragment: Fragment) {

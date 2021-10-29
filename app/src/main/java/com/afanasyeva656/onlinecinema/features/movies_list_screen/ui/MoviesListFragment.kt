@@ -13,6 +13,10 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MoviesListFragment: Fragment() {
     private val viewModel by viewModel<MoviesListViewModel>()
 
+    companion object {
+        fun newInstance() : MoviesListFragment = MoviesListFragment()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

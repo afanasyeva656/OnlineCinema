@@ -8,10 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.afanasyeva656.onlinecinema.R
+import com.afanasyeva656.onlinecinema.databinding.FragmentMoviesListBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MoviesListFragment: Fragment() {
     private val viewModel by viewModel<MoviesListViewModel>()
+    private lateinit var binding: FragmentMoviesListBinding
 
     companion object {
         fun newInstance() : MoviesListFragment = MoviesListFragment()
@@ -27,10 +29,11 @@ class MoviesListFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentMoviesListBinding.inflate(layoutInflater)
         viewModel.viewState.observe(viewLifecycleOwner, Observer(::render))
     }
 
     private fun render(state: ViewState) {
-        view?.findViewById<TextView>(R.id.tvTitle)?.text = state.moviesList.toString()
+        binding.tvTitle.text = state.moviesList.toString()
     }
 }

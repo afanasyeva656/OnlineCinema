@@ -18,6 +18,7 @@ class MoviesListViewModel(
 
     override suspend fun reduce(event: Event, previousState: ViewState): ViewState? {
         when (event) {
+            is UiEvent.OnMovieClicked -> {}
             is DataEvent.OnLoadData -> {
                 moviesInteractor.getMoviesList().fold(
                     onSuccess = { processDataEvent(DataEvent.SuccessMoviesList(it, false)) },

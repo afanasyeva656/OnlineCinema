@@ -10,7 +10,7 @@ data class ViewState(
 )
 
 sealed class UiEvent : Event {
-
+    data class OnMovieClicked(val movieDomainModel: MovieDomainModel) : UiEvent()
 }
 
 sealed class DataEvent : Event {

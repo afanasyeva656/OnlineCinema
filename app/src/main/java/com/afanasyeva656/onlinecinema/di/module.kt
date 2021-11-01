@@ -1,5 +1,9 @@
 package com.afanasyeva656.onlinecinema.di
 
+import com.afanasyeva656.onlinecinema.MainActivity
+import com.github.terrakok.cicerone.Cicerone
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import okhttp3.OkHttpClient
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -19,5 +23,20 @@ val appModule = module {
             .baseUrl(BASE_URL)
             .client(get())
             .build()
+    }
+}
+
+
+val navigationModule = module {
+    single<Cicerone<Router>> {
+        Cicerone.create(Router())
+    }
+
+    single<NavigatorHolder> {
+        get<Cicerone<Router>>().getNavigatorHolder()
+    }
+
+    single<Router> {
+        get<Cicerone<Router>>().router
     }
 }

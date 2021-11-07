@@ -15,7 +15,13 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MoviesListFragment : Fragment() {
     private val viewModel by viewModel<MoviesListViewModel>()
-    private val adapter by lazy { MoviesAdapter(listOf()) }
+    private val adapter by lazy {
+        MoviesAdapter(listOf()) {
+            viewModel.processUiEvent(
+                UiEvent.OnMovieClicked(it)
+            )
+        }
+    }
     private lateinit var binding: FragmentMoviesListBinding
 
     companion object {

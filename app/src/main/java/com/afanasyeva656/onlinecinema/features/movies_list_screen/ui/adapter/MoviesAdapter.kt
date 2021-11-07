@@ -10,8 +10,8 @@ import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model.M
 import com.bumptech.glide.Glide
 
 class MoviesAdapter(
-    private var movieModels: List<MovieDomainModel>
-//    private val onItemClick: (movieModel: MovieDomainModel) -> Unit
+    private var movieModels: List<MovieDomainModel>,
+    private val onItemClick: (movieModel: MovieDomainModel) -> Unit
 ) : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     private lateinit var binding: ItemMovieBinding
 
@@ -37,6 +37,8 @@ class MoviesAdapter(
                 .placeholder(R.drawable.ic_baseline_cloud_download_24)
                 .error(R.drawable.ic_baseline_error_24)
                 .into(binding.imageView)
+
+            itemView.setOnClickListener { onItemClick(movieModels[position]) }
         }
     }
 

@@ -1,15 +1,10 @@
 package com.afanasyeva656.onlinecinema.features.movies_list_screen.ui
 
-import android.util.Log
 import com.afanasyeva656.onlinecinema.base.BaseViewModel
 import com.afanasyeva656.onlinecinema.base.Event
-import com.afanasyeva656.onlinecinema.base.navigation.RouterProvider
 import com.afanasyeva656.onlinecinema.base.navigation.Screens
 import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.MoviesInteractor
 import com.github.terrakok.cicerone.Router
-import com.github.terrakok.cicerone.androidx.FragmentScreen
-import org.koin.android.ext.android.inject
-import org.koin.java.KoinJavaComponent.inject
 
 class MoviesListViewModel(
     private val moviesInteractor: MoviesInteractor,

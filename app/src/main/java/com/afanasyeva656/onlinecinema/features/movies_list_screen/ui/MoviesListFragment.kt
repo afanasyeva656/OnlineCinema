@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.afanasyeva656.onlinecinema.R
 import com.afanasyeva656.onlinecinema.databinding.FragmentMoviesListBinding
 import com.afanasyeva656.onlinecinema.features.movies_list_screen.ui.adapter.MoviesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel

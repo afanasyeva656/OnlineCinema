@@ -1,8 +1,5 @@
 package com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model
 
-import com.afanasyeva656.onlinecinema.features.movies_list_screen.data.api.model.GenreModel
-import com.google.gson.annotations.SerializedName
-
 data class MovieDomainModel(
     val adult: Boolean,
     val genres: List<GenreDomainModel>,

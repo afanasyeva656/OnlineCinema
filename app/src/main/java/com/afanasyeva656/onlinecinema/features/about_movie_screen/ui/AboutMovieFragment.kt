@@ -11,10 +11,12 @@ import com.afanasyeva656.onlinecinema.R
 import com.afanasyeva656.onlinecinema.databinding.FragmentAboutMovieBinding
 import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model.MovieDomainModel
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class AboutMovieFragment: Fragment() {
+class AboutMovieFragment : Fragment() {
     companion object {
         private const val EXTRA_MOVIE = "extra_movie"
         fun newInstance(movieModel: MovieDomainModel): AboutMovieFragment {
@@ -27,8 +29,16 @@ class AboutMovieFragment: Fragment() {
     }
 
     private lateinit var binding: FragmentAboutMovieBinding
-//    TODO: переделать
-    private val viewModel by viewModel<AboutMovieViewModel>() { parametersOf(arguments?.getParcelable(EXTRA_MOVIE)) }
+    private val requestOptions by inject<RequestOptions>()
+
+    //    TODO: переделать
+    private val viewModel by viewModel<AboutMovieViewModel>() {
+        parametersOf(
+            arguments?.getParcelable(
+                EXTRA_MOVIE
+            )
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,8 +61,7 @@ class AboutMovieFragment: Fragment() {
         Glide
             .with(binding.root)
             .load(state.movieDomainModel.posterPath)
-            .placeholder(R.drawable.ic_baseline_cloud_download_24)
-            .error(R.drawable.ic_baseline_error_24)
+            .apply(requestOptions)
             .into(binding.ivMoviePoster)
 
         binding.bWatchMovie.setOnClickListener {

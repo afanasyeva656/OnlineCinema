@@ -1,6 +1,9 @@
 package com.afanasyeva656.onlinecinema.di
 
 import com.afanasyeva656.onlinecinema.MainActivity
+import com.afanasyeva656.onlinecinema.R
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
@@ -23,6 +26,13 @@ val appModule = module {
             .baseUrl(BASE_URL)
             .client(get())
             .build()
+    }
+
+    single {
+        RequestOptions
+            .diskCacheStrategyOf(DiskCacheStrategy.DATA)
+            .placeholder(R.drawable.ic_baseline_cloud_download_24)
+            .error(R.drawable.ic_baseline_error_24)
     }
 }
 

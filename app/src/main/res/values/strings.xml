@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">OnlineCinema</string>
     <string name="tv_title_placeholder">Titles</string>
+    <string name="about_movie">About movie</string>
+    <string name="movie_description_placeholder">Movie Description</string>
+    <string name="movie_title">Movie Title</string>
 </resources>

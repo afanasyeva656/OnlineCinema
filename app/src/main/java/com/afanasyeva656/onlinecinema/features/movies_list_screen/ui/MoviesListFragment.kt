@@ -9,12 +9,15 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.afanasyeva656.onlinecinema.databinding.FragmentMoviesListBinding
 import com.afanasyeva656.onlinecinema.features.movies_list_screen.ui.adapter.MoviesAdapter
+import com.bumptech.glide.request.RequestOptions
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MoviesListFragment : Fragment() {
     private val viewModel by viewModel<MoviesListViewModel>()
+    private val requestOptions: RequestOptions by inject<RequestOptions>()
     private val adapter by lazy {
-        MoviesAdapter(listOf()) {
+        MoviesAdapter(requestOptions, listOf()) {
             viewModel.processUiEvent(
                 UiEvent.OnMovieClicked(it)
             )

@@ -4,4 +4,7 @@
     <string name="about_movie">About movie</string>
     <string name="movie_description_placeholder">Movie Description</string>
     <string name="movie_title">Movie Title</string>
+    <string name="internet_connection_error">No internet connection</string>
+    <string name="unknown_error">Oops! Something went wrong</string>
+    <string name="try_again">Try again</string>
 </resources>

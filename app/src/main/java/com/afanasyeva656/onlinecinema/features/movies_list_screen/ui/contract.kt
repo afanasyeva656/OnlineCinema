@@ -6,11 +6,13 @@ import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model.M
 data class ViewState(
     val moviesList: List<MovieDomainModel>,
     val isLoading: Boolean,
-    val errorMessage: String
+    val error: Throwable?,
+    val errorMessageForUser: Int?
 )
 
 sealed class UiEvent : Event {
     data class OnMovieClicked(val movieDomainModel: MovieDomainModel) : UiEvent()
+    object OnTryAgainClicked : UiEvent()
 }
 
 sealed class DataEvent : Event {
@@ -18,5 +20,6 @@ sealed class DataEvent : Event {
     data class SuccessMoviesList(val moviesList: List<MovieDomainModel>, val isLoading: Boolean) :
         DataEvent()
 
-    data class ErrorMoviesList(val errorMessage: String, val isLoading: Boolean) : DataEvent()
+    data class ErrorMoviesList(val error: Throwable, val isLoading: Boolean) : DataEvent()
+    object OnResetData : DataEvent()
 }

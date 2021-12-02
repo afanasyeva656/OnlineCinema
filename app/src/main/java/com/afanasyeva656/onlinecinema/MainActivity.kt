@@ -3,6 +3,7 @@ package com.afanasyeva656.onlinecinema
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.afanasyeva656.onlinecinema.base.navigation.BackButtonListener
 import com.afanasyeva656.onlinecinema.base.navigation.Screens
 import com.afanasyeva656.onlinecinema.databinding.ActivityMainBinding
 import com.github.terrakok.cicerone.Command
@@ -44,19 +45,13 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
     }
 
-//    private fun setFragment(fragment: Fragment) {
-//        // commit обязателен
-//        supportFragmentManager.beginTransaction()
-//            .replace(android.R.id.content, fragment).commit()
-//    }
-
-//    override fun onBackPressed() {
-//        val fragment = supportFragmentManager.findFragmentById(R.id.actMain)
-//        if (fragment != null && fragment is BackButtonListener
-//            && (fragment as BackButtonListener).onBackPressed()) {
-//            return
-//        } else {
-//            super.onBackPressed()
-//        }
-//    }
+    override fun onBackPressed() {
+        val fragment = supportFragmentManager.findFragmentById(R.id.actMain)
+        if (fragment != null && fragment is BackButtonListener
+            && (fragment as BackButtonListener).onBackPressed()) {
+            return
+        } else {
+            super.onBackPressed()
+        }
+    }
 }

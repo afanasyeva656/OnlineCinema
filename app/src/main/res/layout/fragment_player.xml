@@ -12,6 +12,7 @@
         app:auto_show="true"
         app:hide_on_touch="true"
         app:resize_mode="fit"
+        android:fitsSystemWindows="true"
         app:use_controller="true" />
 
     <ProgressBar

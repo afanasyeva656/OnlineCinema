@@ -7,9 +7,12 @@
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/activity_main.xml" value="0.22282608695652173" />
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_about_movie.xml" value="0.264" />
+        <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_error_movies_list.xml" value="0.2" />
+        <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_loading_movies_list.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_movies_list.xml" value="0.264" />
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_player.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_sort_dialog.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_success_movies_list.xml" value="0.1766304347826087" />
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/fragment_temp_item.xml" value="0.1911231884057971" />
         <entry key="..\:/Users/User/Desktop/Web/OnlineCinema/app/src/main/res/layout/item_movie.xml" value="0.264" />
       </map>

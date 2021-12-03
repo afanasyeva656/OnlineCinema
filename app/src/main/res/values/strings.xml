@@ -7,4 +7,6 @@
     <string name="internet_connection_error">No internet connection</string>
     <string name="unknown_error">Oops! Something went wrong</string>
     <string name="try_again">Try again</string>
+    <string name="error_description_placeholder">Error description</string>
+    <string name="error_title_placeholder">Error title</string>
 </resources>

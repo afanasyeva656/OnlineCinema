@@ -34,7 +34,7 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val recyclerView = binding.rvMovies
+        val recyclerView = binding.successMoviesListFragment.rvMovies
         recyclerView.adapter = adapter
         recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -44,8 +44,16 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
 
     private fun render(state: ViewState) {
         updateProgressBar(state.isLoading)
+        renderSuccess(state)
         renderError(state.errorMessageForUser)
-        adapter.updateMovies(state.moviesList)
+    }
+
+    private fun renderSuccess(state: ViewState) {
+        if (state.moviesList.isNotEmpty()) {
+            adapter.updateMovies(state.moviesList)
+            binding.errorMoviesListFragment.root.visibility = View.GONE
+            binding.successMoviesListFragment.root.visibility = View.VISIBLE
+        }
     }
 
     private fun updateProgressBar(isLoading: Boolean) {
@@ -54,15 +62,12 @@ class MoviesListFragment : Fragment(R.layout.fragment_movies_list) {
 
     private fun renderError(errorMessage: Int?) {
         errorMessage?.let {
-            val snackbar = Snackbar.make(
-                binding.rvMovies,
-                errorMessage,
-                Snackbar.LENGTH_INDEFINITE
-            )
-            snackbar.setAction(
-                R.string.try_again
-            ) { viewModel.processUiEvent(UiEvent.OnTryAgainClicked) }
-            snackbar.show()
+            binding.errorMoviesListFragment.root.visibility = View.VISIBLE
+            binding.errorMoviesListFragment.tvErrorTitle.text = getString(errorMessage)
+            binding.errorMoviesListFragment.bTryAgain.setOnClickListener {
+                viewModel.processUiEvent(UiEvent.OnTryAgainClicked)
+                binding.errorMoviesListFragment.root.visibility = View.GONE
+            }
         }
     }
 }

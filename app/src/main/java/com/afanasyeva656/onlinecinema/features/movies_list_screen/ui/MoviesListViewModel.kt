@@ -32,7 +32,7 @@ class MoviesListViewModel(
                 router.navigateTo(screen)
             }
             is UiEvent.OnTryAgainClicked -> {
-                processDataEvent(DataEvent.OnResetData)
+//                processDataEvent(DataEvent.OnResetData)
                 processDataEvent(DataEvent.OnLoadData)
             }
             is DataEvent.OnLoadData -> {
@@ -59,10 +59,7 @@ class MoviesListViewModel(
                 return previousState.copy(
                     error = event.error,
                     isLoading = event.isLoading,
-                    errorMessageForUser = when (event.error) {
-                        is UnknownHostException -> R.string.internet_connection_error
-                        else -> R.string.unknown_error
-                    }
+                    errorMessageForUser = defineError(event.error)
                 )
             }
             is DataEvent.OnResetData -> {
@@ -75,5 +72,12 @@ class MoviesListViewModel(
             }
         }
         return null
+    }
+
+    private fun defineError(error: Throwable): Int {
+        return when (error) {
+            is UnknownHostException -> R.string.internet_connection_error
+            else -> R.string.unknown_error
+        }
     }
 }

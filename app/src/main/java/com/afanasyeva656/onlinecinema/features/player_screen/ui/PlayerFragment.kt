@@ -23,6 +23,7 @@ class PlayerFragment : Fragment() {
 
     private var playWhenReady = true
     private var currentWindow = 0
+//    С какой позиции начинать воспроизведение
     private var playbackPosition = 0L
 
     companion object {
@@ -84,8 +85,7 @@ class PlayerFragment : Fragment() {
 
     private fun initializePlayer() {
         player = get()
-        val movieUrl: String = requireArguments().getString(MOVIE_URL_KEY)
-            ?: "http://techslides.com/demos/sample-videos/small.mp4"
+        val movieUrl: String = requireArguments().getString(MOVIE_URL_KEY)!!
 
         player?.let {
             binding.playerView.player = it

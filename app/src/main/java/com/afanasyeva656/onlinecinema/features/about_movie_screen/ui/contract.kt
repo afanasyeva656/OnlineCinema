@@ -10,5 +10,4 @@ data class ViewState(
 
 sealed class UiEvent : Event {
     object OnVideoClicked: UiEvent()
-    object OnBackClicked: UiEvent()
 }

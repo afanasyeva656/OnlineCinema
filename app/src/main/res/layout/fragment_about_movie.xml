@@ -50,13 +50,13 @@
                 android:id="@+id/tvMovieReleaseDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2020"/>
+                android:text="@string/release_year_placeholder"/>
 
             <Button
                 android:id="@+id/bWatchMovie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Watch Movie" />
+                android:text="@string/watch_movie" />
 
 
             <TextView

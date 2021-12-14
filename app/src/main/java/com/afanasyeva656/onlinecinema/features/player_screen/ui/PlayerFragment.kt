@@ -1,31 +1,24 @@
 package com.afanasyeva656.onlinecinema.features.player_screen.ui
 
-import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.*
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.afanasyeva656.onlinecinema.R
-import com.afanasyeva656.onlinecinema.databinding.FragmentMoviesListBinding
 import com.afanasyeva656.onlinecinema.databinding.FragmentPlayerBinding
-import com.afanasyeva656.onlinecinema.features.about_movie_screen.ui.AboutMovieFragment
-import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model.MovieDomainModel
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.util.Util
 import org.koin.android.ext.android.get
-import org.koin.android.ext.android.inject
-import org.koin.core.parameter.parametersOf
 
 class PlayerFragment : Fragment(R.layout.fragment_player) {
-    private val binding: FragmentPlayerBinding by viewBinding(
-        FragmentPlayerBinding::bind
-    )
+    private val binding: FragmentPlayerBinding by viewBinding(FragmentPlayerBinding::bind)
     private var player: ExoPlayer? = null
 
     private var playWhenReady = true
@@ -94,10 +87,10 @@ class PlayerFragment : Fragment(R.layout.fragment_player) {
                 override fun onPlayerStateChanged(playWhenReady: Boolean,playbackState: Int) {
                     when (playbackState) {
                         Player.STATE_BUFFERING -> {
-                            binding.progressBar.isVisible = true
+                            binding.pbPlayer.isVisible = true
                         }
                         Player.STATE_READY -> {
-                            binding.progressBar.isVisible = false
+                            binding.pbPlayer.isVisible = false
                         }
                     }
                 }

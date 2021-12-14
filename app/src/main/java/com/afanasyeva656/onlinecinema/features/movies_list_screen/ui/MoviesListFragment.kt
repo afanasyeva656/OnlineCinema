@@ -10,7 +10,6 @@ import com.afanasyeva656.onlinecinema.R
 import com.afanasyeva656.onlinecinema.databinding.FragmentMoviesListBinding
 import com.afanasyeva656.onlinecinema.features.movies_list_screen.ui.adapter.MoviesAdapter
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -1,6 +1,5 @@
 package com.afanasyeva656.onlinecinema.di
 
-import com.afanasyeva656.onlinecinema.MainActivity
 import com.afanasyeva656.onlinecinema.R
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions

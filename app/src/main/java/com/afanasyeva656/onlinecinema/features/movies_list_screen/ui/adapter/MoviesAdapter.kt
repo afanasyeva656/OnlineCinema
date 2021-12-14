@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.afanasyeva656.onlinecinema.R
 import com.afanasyeva656.onlinecinema.databinding.ItemMovieBinding
 import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model.MovieDomainModel
 import com.bumptech.glide.Glide
@@ -37,7 +36,7 @@ class MoviesAdapter(
                 .with(binding.root)
                 .load(movieModels[position].posterPath)
                 .apply(requestOptions)
-                .into(binding.imageView)
+                .into(binding.ivPoster)
 
             itemView.setOnClickListener { onItemClick(movieModels[position]) }
         }

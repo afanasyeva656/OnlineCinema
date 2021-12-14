@@ -1,8 +1,7 @@
 package com.afanasyeva656.onlinecinema
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import com.afanasyeva656.onlinecinema.base.navigation.BackButtonListener
 import com.afanasyeva656.onlinecinema.base.navigation.Screens
 import com.afanasyeva656.onlinecinema.databinding.ActivityMainBinding

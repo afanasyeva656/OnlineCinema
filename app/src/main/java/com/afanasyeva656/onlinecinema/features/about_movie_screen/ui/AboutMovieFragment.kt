@@ -1,12 +1,10 @@
 package com.afanasyeva656.onlinecinema.features.about_movie_screen.ui
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import by.kirich1409.viewbindingdelegate.viewBinding
 import com.afanasyeva656.onlinecinema.R
 import com.afanasyeva656.onlinecinema.databinding.FragmentAboutMovieBinding
 import com.afanasyeva656.onlinecinema.features.movies_list_screen.domain.model.MovieDomainModel
@@ -16,7 +14,7 @@ import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class AboutMovieFragment : Fragment() {
+class AboutMovieFragment : Fragment(R.layout.fragment_about_movie) {
     companion object {
         private const val EXTRA_MOVIE = "extra_movie"
         fun newInstance(movieModel: MovieDomainModel): AboutMovieFragment {
@@ -28,25 +26,15 @@ class AboutMovieFragment : Fragment() {
         }
     }
 
-    private lateinit var binding: FragmentAboutMovieBinding
+    private val binding: FragmentAboutMovieBinding by viewBinding(FragmentAboutMovieBinding::bind)
     private val requestOptions by inject<RequestOptions>()
 
-    //    TODO: переделать
-    private val viewModel by viewModel<AboutMovieViewModel>() {
+    private val viewModel by viewModel<AboutMovieViewModel> {
         parametersOf(
             arguments?.getParcelable(
                 EXTRA_MOVIE
             )
         )
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentAboutMovieBinding.inflate(inflater, container, false)
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,17 +43,17 @@ class AboutMovieFragment : Fragment() {
     }
 
     private fun render(state: ViewState) {
-        binding.tvMovieTitle.text = state.movieDomainModel.title
-        binding.tvMovieReleaseDate.text = state.movieDomainModel.releaseDate
-        binding.tvMovieOverview.text = state.movieDomainModel.overview
-        Glide
-            .with(binding.root)
-            .load(state.movieDomainModel.posterPath)
-            .apply(requestOptions)
-            .into(binding.ivMoviePoster)
+        with(binding) {
+            tvMovieTitle.text = state.movieDomainModel.title
+            tvMovieReleaseDate.text = state.movieDomainModel.releaseDate
+            tvMovieOverview.text = state.movieDomainModel.overview
+            Glide
+                .with(root)
+                .load(state.movieDomainModel.posterPath)
+                .apply(requestOptions)
+                .into(ivMoviePoster)
 
-        binding.bWatchMovie.setOnClickListener {
-            viewModel.processUiEvent(UiEvent.OnVideoClicked)
+            bWatchMovie.setOnClickListener { viewModel.processUiEvent(UiEvent.OnVideoClicked) }
         }
     }
 }
